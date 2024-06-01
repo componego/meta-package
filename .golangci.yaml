@@ -1,0 +1,45 @@
+run:
+  timeout: 5m
+linters:
+  enable:
+    - asciicheck
+    - depguard
+    - dogsled
+    - durationcheck
+    - errcheck
+    - errorlint
+    - exportloopref
+    - gci
+    - gofmt
+    - goimports
+    - gosec
+    - misspell
+    - nakedret
+    - nilerr
+    - nolintlint
+    - revive
+    - wastedassign
+    - unparam
+    - unused
+    - staticcheck
+    - gosimple
+issues:
+  exclude-rules:
+    - linters:
+        - revive
+      text: 'var-naming:'
+    - linters:
+        - goimports
+      text: File is not `goimports`-ed
+linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - $gostd
+          - github.com/componego/meta-package
+          - github.com/componego/componego
+          - github.com/spf13/viper
+          - github.com/componego/componego/libs/vendor-proxy
+          - github.com/stretchr/testify/require
+          - github.com/mattn/go-isatty
